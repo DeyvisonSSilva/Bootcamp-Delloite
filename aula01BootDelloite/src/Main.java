@@ -17,7 +17,7 @@ public class Main {
             System.out.println("-----            2. Consultar Item                  -----");
             System.out.println("-----            3. Atualizar Item                  -----");
             System.out.println("-----            4. Remover Item                    -----");
-            System.out.println("-----            0. Sair                            -----");
+            System.out.println("-----            5. Sair                            -----");
             System.out.println("---------------------------------------------------------");
 
             escolha = scanner.nextInt();
@@ -38,13 +38,17 @@ public class Main {
                     break;
 
                 case 2:
-                    System.out.println("Digite o número do item: ");
+                    System.out.println("Digite o número do item que deseja consultar: ");
                     int numero = scanner.nextInt();
                     scanner.nextLine();
 
-                    System.out.println(itens[numero - 1]);
-                    System.out.println(valores[numero - 1]);
-                    System.out.println(categorias[numero - 1]);
+                    if (itens[numero -1] == null){
+                        System.out.println("Não há nenhum item com este número adicionado.");
+                    } else {
+                        System.out.println("Nome do produto: " + itens[numero - 1]);
+                        System.out.println("Valor do produto: " + valores[numero - 1]);
+                        System.out.println("Categoria do produto: " + categorias[numero - 1]);
+                    }
                     break;
 
                 case 3:
@@ -75,7 +79,7 @@ public class Main {
                     System.out.println("Item removido!");
                     break;
 
-                case 0:
+                case 5:
                     System.out.println("Saindo do sistema...");
                     break;
 
@@ -83,7 +87,7 @@ public class Main {
                     System.out.println("Opção inválida!");
             }
 
-        } while (escolha != 0);
+        } while (escolha != 5);
 
         scanner.close();
     }
